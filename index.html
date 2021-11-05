@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="./yuge copy.css">
+    <title>いろいろ動作test</title>
+</head>
+
+<body>
+    <header>
+        <!-- ハンバーガーメニューボタン -->
+        <div class="openModalBtn">≡</div>
+        <!-- ハンバーガーOPEN中身 -->
+        <nav class="open-nav">
+            <dl class="">
+                <dt>jquery使用ハンバーガーメニュー</dt>
+                <dd>1.html→header部分</dd>
+                <dd>2.js→htmlのbodyの末尾にjqueryなどのスクリプトをまとめました。</dd>
+                <dd>3.css→末尾にハンバーガーメニューのcssの設定と装飾をまとめました。</dd>
+                <dd>この3つで実装しています。</dd>
+                <dd>ちなみに複数利用は不可でした。ひとつのボタンで全部のナビが開いてしまう。</dd>
+                <dt>徳島の麺類事情</dt>
+                <dt>お店紹介</dt>
+                <dd>＞鳴ちゅる</dd>
+                <dd>＞たらいうどん</dd>
+                <dd>本格派うどん</dd>
+                <dt>モデルコース</dt>
+                <dt>特集</dt>
+            </dl>
+        </nav>
+    </header>
+
+    <div class="mv">
+        <h1 class="mv-logo">
+            <img src="" alt="阿波うどん運動">
+        </h1>
+    </div>
+    <main>
+        <section class="sc1">
+            <div class="sc1_wrap">
+                <h2 class="sc1_h2">
+                    <span>徳島で見つける、</span>
+                    <br><span>あなた好みのうどん。</span>
+                </h2>
+                <p class="sc1_subtitle">サブタイトルサブタイトルサブタイトルサブタイトル</p>
+                <p class="sc1_letter">
+                    jsハンバーガーメニュー、jsアコーディオンメニュー、cssホバーアニメーションの動作確認のため作成しました。<br>
+                    命名ルール無視、効率の悪いcss設計なのは見逃してください。
+                </p>
+                <button class="sc1_btn">徳島の麺事情</button>
+            </div>
+        </section>
+        <section class="sc2">
+            <div class="sc2_wrap">
+                <h2>
+                    徳島に在るうどんの種類
+                </h2>
+                <ul class="sc2_ul">
+                    <li>
+                        <a href="">
+                            <div class="sc2_li_img">
+                                <img src="img-u/22674754_s.jpg" alt="">
+                                <div class="sc2_effects">
+                                    <img src="./img-u/smoke.png" height="100%" alt="">
+                                </div>
+                                <div class="sc2_eff_text">ほっこり</div>
+                            </div>
+                            <div class="sc2_li_title">たらいうどん</div>
+                            <p class="sc2_li_letter">ホバーで湯気とテキストが出てくる動作はCSSのみで実装しています。</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="sc2_li_img">
+                                <img src="img-u/22674754_s.jpg" alt="">
+                                <div class="sc2_effects">
+                                    <img src="./img-u/smoke.png" height="100%" alt="">
+                                </div>
+                                <div class="sc2_eff_text">ちゅるん</div>
+                            </div>
+                            <div class="sc2_li_title">鳴ちゅる</div>
+                            <p class="sc2_li_letter">opacity:0;で非表示にしておき、:hoverでopacity:1;で表示させています。</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="sc2_li_img">
+                                <img src="img-u/22674754_s.jpg" alt="">
+                                <div class="sc2_effects">
+                                    <img src="./img-u/smoke.png" height="100%" alt="">
+                                </div>
+                                <div class="sc2_eff_text">もちもち</div>
+                            </div>
+                            <div class="sc2_li_title">本格派</div>
+                            <p class="sc2_li_letter">ゆっくり表示させる動作はtransition:all 0.8s ease;です。</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="sc3 accordion-area">
+            <h2 class="title">県外からのアクセス</h2>
+            <div class="sc3_wrap box">
+                <img src="./img-u/toku2511943.png" alt="">
+            </div>
+        </section>
+        <section class="sc4">
+            <img src="./img-u/naruto1.webp" alt="">
+            <div class="sc4_wrap">
+                <h2>モデルコース</h2>
+                <p class="sc4_letter">
+                    上記アコーディオンについて
+                    <br>JSで実装。htmlのここの下に記述したscript部分とcssクラスで動作しています。参考サイトよりコピーしてきたため、使用していないクラス名やliなどがありますが、一応動作するのでそのままにしています。要改善。
+                </p>
+                <button class="sc1_btn">ここから見る</button>
+            </div>
+        </section>
+
+
+        <!-- ↓↓↓ＪＳアコーディオンここから↓↓↓ -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            //アコーディオンをクリックした時の動作
+            $('.title').on('click', function () {//タイトル要素をクリックしたら
+                var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+                $(findElm).slideToggle();//アコーディオンの上下動作
+
+                if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
+                    $(this).removeClass('close');//クラス名を除去し
+                } else {//それ以外は
+                    $(this).addClass('close');//クラス名closeを付与
+                }
+            });
+            //ページが読み込まれた際にopenクラスをつけ、openがついていたら開く動作※不必要なら下記全て削除
+            $(window).on('load', function () {
+                $('.accordion-area li:first-of-type section').addClass("open"); //accordion-areaのはじめのliにあるsectionにopenクラスを追加
+                $(".open").each(function (index, element) {	//openクラスを取得
+                    var Title = $(element).children('.title');	//openクラスの子要素のtitleクラスを取得
+                    $(Title).addClass('close');				//タイトルにクラス名closeを付与し
+                    var Box = $(element).children('.box');	//openクラスの子要素boxクラスを取得
+                    $(Box).slideDown(500);					//アコーディオンを開く
+                });
+            });
+        </script>
+        <!-- ↑↑↑ＪＳアコーディオンここまで -->
+
+        <!-- ↓↓↓ＪＳハンバーガー設定ここから↓↓↓ -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="./jquery-3.6.0.min.js"></script>
+        <script>
+            // ハンバーガーメニュー
+            $(function () {
+                $("nav").hide();
+                $(".openModalBtn").click(function () {//メニューボタンをクリックしたとき
+                    $("nav").toggle(300);//0.3秒で表示したり非表示にしたりする
+                });
+            });
+        </script>
+        <!-- ↑↑↑ＪＳハンバーガー設定ここまで -->
+
+    </main>
+</body>
+</html>
